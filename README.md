@@ -37,4 +37,6 @@ Mei, X. and H. Ling(2009). Robust visual tracking using L1 minimization. IEEE 11
 ## VTD [[Origin Code]](http://cv.snu.ac.kr/research/~vtd/)
 J. Kwon and K. Lee, "Visual tracking decomposition," in Proc. 2010 Computer Vision and Pattern Recognition (CVPR '10), pp. 1269-1276.
 
+## RCT [[Origin Code]](http://www4.comp.polyu.edu.hk/~cslzhang/CT/CT.htm)
+K. Zhang, L. Zhang and M. Yang, "Real-time compressive tracking," in Proc. 2012 ECCV'12, pp. 864-877.
 
