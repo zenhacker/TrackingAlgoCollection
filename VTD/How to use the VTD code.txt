@@ -1,0 +1,169 @@
+VTD Tracker v7.0-20120405 (http://cv.snu.ac.kr/research/~vtd/)
+===========================================
+
+written by 
+Junseok Kwon <paradis0@snu.ac.kr>
+Kyoung Mu Lee <kyoungmu@snu.ac.kr>
+
+--------
+Contents
+--------
+This release contains code for a VTD tracker as described in
+J. Kwon and K. M. Lee, "Visual Tracking Decomposition," CVPR 2010.
+
+-----
+USAGE
+-----
+
+1. Put the video files into each directory
+
+2. Open the video 
+
+video file
+-----------------------------------------
+\\video\\data\\shaking\\skating1(low frame rate).avi
+
+initial configuration settings 
+-----------------------------------------
+\\video\\data\\shaking\\skating1(low frame rate).avi.txt
+
+ex) 
+x pos   y pos  width  height  rotation  reserve
+------------------------------------------------
+180	220	35	100	90	0
+
+initial parameter settings 
+-----------------------------------------
+\\video\\data\\shaking\\param.txt
+
+ex) 
+color	  number of samples  	variance of the motion model	minimum of scale	maximum of scale
+-------------------------------------------------------------------------------------------
+1  		100 			   X1.0				X0.8			X1.2
+
+
+3. Run tracking 
+
+4. Close the window at an initial frame 
+
+5. Use esc to quit.
+
+<output> 
+\\video\\data\\shaking\\frame 
+
+-----
+NOTES
+-----
+1. You need to have the OpenCV Library to compile and use the programs.
+My experimental environments are window XP, Microsoft Visual C++ 2010, Matlab R2011b, OpenCV 0.97. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Please note that you can use different vesion of Microsoft Visual C++ and Matlab to compile VTD.
+However, you must use OpenCV 0.97. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+VTD is basically implemented by visual c++. 
+But it utilizes some matlab functions .
+And this occurs the error "could not initialize the application properly" when it is used in other computers.
+ 
+To avoid the error, DSPCA.dll and phase.dll should be complied again at each computer using matlab.
+Then you should compile VTD using visual c++.
+I could not find simpler solution about that.
+
+You should add following directories of the matlab tool into the visual studio setting. 
+"\MATLAB\R2011b\EXTERN\INCLUDE¡± 
+"\MATLAB\R2011b\EXTERN\LIB\WIN32\MICROSOFT"
+
+You should copy \MATLAB\R2011b\EXTERN\LIB\WIN32\MICROSOFT\mclmcrrt.lib to \\VTD\\VTD\\lib\\mclmcrrt.lib
+
+2. VTD uses functions from Rob Hess's execllent tracking code(http://web.engr.oregonstate.edu/~hess/).
+VTD uses the DSPCA code at http://www.princeton.edu/~aspremon/
+VTD uses the phase code at  http://www.csse.uwa.edu.au/~pk/Research/MatlabFns/
+
+3. The results are slightly sensitive to parameters. You may obtain better results by adjusting the parameters.  
+4. You can download the test videos an images at 
+http://cv.snu.ac.kr/research/~vtd/
+
+--------------------------------------
+How to create DSPCA  DLL files in matlab
+--------------------------------------
+
+1. mbuild -setup
+
+Please choose your compiler for building standalone MATLAB applications: 
+ 
+Would you like mbuild to locate installed compilers [y]/n? n
+ 
+Select a compiler: 
+[1] Lcc-win32 C 2.4.1 
+[2] Microsoft Software Development Kit (SDK) 7.1 
+[3] Microsoft Visual C++ 6.0 
+[4] Microsoft Visual C++ 2005 SP1 
+[5] Microsoft Visual C++ 2008 SP1 
+[6] Microsoft Visual C++ 2010 
+[7] Microsoft Visual C++ 2010 Express 
+ 
+[0] None 
+ 
+Compiler: 6
+ 
+Your machine has a Microsoft Visual C++ 2010 compiler located at 
+C:\Program Files\Microsoft Visual Studio 10.0. Do you want to use this compiler [y]/n? y
+ 
+Please verify your choices: 
+ 
+Compiler: Microsoft Visual C++ 2010  
+Location: C:\Program Files\Microsoft Visual Studio 10.0 
+ 
+Are these correct [y]/n? y
+2. mcc -W cpplib:DSPCA -T link:lib DSPCA.m sparse_rank_one_mex.mexw32 -v
+
+3. copy DSPCA.dll to \\VTD\\VTD\\DSPCA.dll
+
+4. copy DSPCA.lib to \\VTD\\VTD\\lib\\DSPCA.lib   
+
+5. copy DSPCA.h to \\VTD\\VTD\\include\\DSPCA.h
+
+--------------------------------------
+How to create phase  DLL files in matlab
+--------------------------------------
+
+1. mbuild -setup
+
+Please choose your compiler for building standalone MATLAB applications: 
+ 
+Would you like mbuild to locate installed compilers [y]/n? n
+ 
+Select a compiler: 
+[1] Lcc-win32 C 2.4.1 
+[2] Microsoft Software Development Kit (SDK) 7.1 
+[3] Microsoft Visual C++ 6.0 
+[4] Microsoft Visual C++ 2005 SP1 
+[5] Microsoft Visual C++ 2008 SP1 
+[6] Microsoft Visual C++ 2010 
+[7] Microsoft Visual C++ 2010 Express 
+ 
+[0] None 
+ 
+Compiler: 6
+ 
+Your machine has a Microsoft Visual C++ 2010 compiler located at 
+C:\Program Files\Microsoft Visual Studio 10.0. Do you want to use this compiler [y]/n? y
+ 
+Please verify your choices: 
+ 
+Compiler: Microsoft Visual C++ 2010  
+Location: C:\Program Files\Microsoft Visual Studio 10.0 
+ 
+Are these correct [y]/n? y
+
+2. mcc -W cpplib:phase  -T link:lib phasecong2.m phasecong.m lowpassfilter.m -v
+
+3. copy phase.dll to \\VTD\\VTD\\phase.dll
+
+4. copy phase.lib to \\VTD\\VTD\\lib\\phase.lib
+
+5. copy phase.h to \\VTD\\VTD\\include\\phase.h
+
+
+

@@ -2,6 +2,8 @@ TrackingAlgoCollection
 ======================
 
 A collection of common tracking algorithms
+## [Object tracking Survey](http://plaza.ufl.edu/lvtaoran/object%20tracking.htm)
+A. Yilmaz, O. Javed and M. Shah, "Object tracking: A survey," ACM Comput. Surv., vol.38, 2006.
 
 Thanks to the authors of these codes.
 ## IVT [[Origin Code]](http://www.cs.toronto.edu/~dross/ivt/)
@@ -32,3 +34,7 @@ X. Mei, H. Ling, Y. Wu, E. Blasch, and L. Bai, "Minimum Error Bounded Efficient 
 X. Mei and H. Ling, "Robust Visual Tracking and Vehicle Classification via Sparse Representation", IEEE Trans. on Pattern Analysis and Machine Intelligence (PAMI), 33(11):2259--2272, 2011.
 Mei, X. and H. Ling(2009). Robust visual tracking using L1 minimization. IEEE 11th International Conference on Computer Vision (ICCV '09).
 	
+## VTD [[Origin Code]](http://cv.snu.ac.kr/research/~vtd/)
+J. Kwon and K. Lee, "Visual tracking decomposition," in Proc. 2010 Computer Vision and Pattern Recognition (CVPR '10), pp. 1269-1276.
+
+
