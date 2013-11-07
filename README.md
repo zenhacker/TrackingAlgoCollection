@@ -50,3 +50,4 @@ The paper extends the following two papers:
 ## RCT [[Origin Code]](http://www4.comp.polyu.edu.hk/~cslzhang/CT/CT.htm)
 [1] K. Zhang, L. Zhang and M. Yang, "Real-time compressive tracking," in Proc. 2012 ECCV'12, pp. 864-877.
 
+## PFT: Particle Filter based Tracker
